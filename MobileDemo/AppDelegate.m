@@ -57,7 +57,7 @@
     
 //    UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
 //    UINavigationController *navigationController = [[splitViewController viewControllers] objectAtIndex:0];
-//	ArrivedDelarationViewController *arrivedDelarationViewController = [[navigationController viewControllers] objectAtIndex:0];
+//	ArrivedDelarationViewController *arrivedDelarationViewController = 
 //    arrivedDelarationViewController.sads = sads;
     
     

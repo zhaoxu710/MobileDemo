@@ -11,5 +11,9 @@
 @interface ArrivedDelarationViewController : UITableViewController
 
 @property (nonatomic, strong) NSMutableArray *sads;
+@property (nonatomic, strong) NSManagedObjectContext *manageObjectContext;
+
+
+- (NSMutableArray *)dataLoading;
 
 @end
