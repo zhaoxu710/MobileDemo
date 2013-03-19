@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2057" systemVersion="12C3103" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Item" syncable="YES">
+        <attribute name="combinedNomencltureCode" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="containerNumber" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="countryOfOrigin" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="decalredQuantity" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="grossMass" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="packageType" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="sad" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="SAD" inverseName="items" inverseEntity="SAD" syncable="YES"/>
+    </entity>
+    <entity name="SAD" syncable="YES">
+        <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="arrivalDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="consignor" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="fiscalChannel" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="itemsSize" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="location" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="office" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="order" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="port" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sadID" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="totalGrossMass" optional="YES" attributeType="Float" defaultValueString="0" syncable="YES"/>
+        <attribute name="totalPackages" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="items" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Item" inverseName="sad" inverseEntity="Item" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Item" positionX="252" positionY="477" width="207" height="148"/>
+        <element name="SAD" positionX="-45" positionY="338" width="126" height="253"/>
+    </elements>
+</model>

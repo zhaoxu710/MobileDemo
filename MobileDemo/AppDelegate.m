@@ -7,63 +7,17 @@
 //
 
 #import "AppDelegate.h"
-#import "MapViewController.h"
-#import "SAD.h"
-#import "ArrivedDelarationViewController.h"
+#import "PDFViewController.h"
 
 
 @implementation AppDelegate{
     NSMutableArray *sads;
 }
+@synthesize  window = _window;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    
-    
-    sads = [NSMutableArray arrayWithCapacity:20];
-    SAD *sad = [[SAD alloc] init];
-    sad.sadID = @"12ARIM0021";
-    sad.port =@"Dublin Port";
-    sad.address =@"Nord road, East third Ring";
-    sad.arrivalDate = [[NSDate alloc] init];
-    sad.order = 1;
-    [sads addObject:sad];
-    sad = [[SAD alloc] init];
-    sad.sadID = @"12CLIM3001";
-    sad.port =@"Dublin Port";
-    sad.address =@"Nord road, East third Ring";
-    sad.arrivalDate = [[NSDate alloc] init];
-    sad.order = 2;
-    [sads addObject:sad];
-    sad = [[SAD alloc] init];
-    sad.sadID = @"12ARIM2830";
-    sad.port =@"Dublin Port";
-    sad.address =@"Nord road, East third Ring";
-    sad.arrivalDate = [[NSDate alloc] init];
-    sad.order = 3;
-    [sads addObject:sad];
-    sad = [[SAD alloc] init];
-    sad.sadID = @"12ARIM2831";
-    sad.port =@"Dublin Port";
-    sad.address =@"Nord road, East third Ring";
-    sad.arrivalDate = [[NSDate alloc] init];
-    sad.order = 4;
-    [sads addObject:sad];
-//    UIViewController *mainUIViewerController = (UIViewController *)self.window.rootViewController;
-//    UISplitViewController *splitViewController =[mainUIViewerController objectAtIndex:0];
-//    UINavigationController *navigationController = [[splitViewController viewControllers] objectAtIndex:0];
-//    ArrivedDelarationViewController *arrivedDelarationViewController = [[navigationController viewControllers] objectAtIndex:0];
-//    arrivedDelarationViewController.sads = sads;
-    
-//    UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
-//    UINavigationController *navigationController = [[splitViewController viewControllers] objectAtIndex:0];
-//	ArrivedDelarationViewController *arrivedDelarationViewController = 
-//    arrivedDelarationViewController.sads = sads;
-    
-    
-    
-    
-    // Override point for customization after application launch.
+    [_window makeKeyAndVisible];
     return YES;
 }
 
@@ -94,5 +48,8 @@
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+
+
 
 @end
