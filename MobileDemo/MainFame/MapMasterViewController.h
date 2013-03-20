@@ -18,10 +18,10 @@
 }
 
 @property (nonatomic, strong) NSMutableArray *sads;
-@property (nonatomic, strong) NSMutableArray *todoList;
+@property (nonatomic, strong) NSArray *todoList;
 @property (nonatomic, strong) NSManagedObjectContext *manageObjectContext;
 @property (strong, nonatomic) MapDetailViewController *detailViewController;
 
-- (NSMutableArray *)dataLoading;
+- (void)dataLoading;
 
 @end

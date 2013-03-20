@@ -23,14 +23,21 @@
 
 
 #pragma mark - View lifecycle
-- (NSMutableArray *)dataLoading{
+- (void)dataLoading{
 //    NSMutableArray *sadlist = [NSMutableArray arrayWithCapacity:20];
-    EBRetriveToDoList *toDoRetriever=[EBRetriveToDoList alloc];
-    NSString *filePath=[toDoRetriever getToDoString];
-    todoList =[toDoRetriever getToDoList:filePath];
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription
+                                   entityForName:@"EBToDo" inManagedObjectContext:manageObjectContext];
+    [fetchRequest setEntity:entity];
+    NSError *error;
+    self.todoList = [manageObjectContext executeFetchRequest:fetchRequest error:&error];
 
-    return todoList;
 }
+    
+
+
+
 
 
 - (void)viewDidLoad
@@ -39,7 +46,7 @@
     
     [super viewDidLoad];
     // load data
-    self.todoList =[self dataLoading];
+    [self dataLoading];
     
     UIImage *background = [UIImage imageNamed:@"left-background1.png"];
     self.tableView.backgroundColor = [UIColor colorWithPatternImage:background];
@@ -47,6 +54,7 @@
     
     // self.clearsSelectionOnViewWillAppear = NO;
     detailViewController = (MapDetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
+    
     
     
 }

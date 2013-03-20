@@ -12,12 +12,15 @@
 #import "ASIFormDataRequest.h"
 #import "IOSLoginResponseParser.h"
 #import "IOSLoginResponse.h"
+#import "User.h"
+#import "EBToDo.h"
 
 
 @implementation LoginUIViewController{
     IOSLoginResponse *loginResponse;
 }
 
+@synthesize managedObjectContext;
 @synthesize userName;
 @synthesize password;
 @synthesize enter;
@@ -82,8 +85,9 @@
         [alert show];
     }
      */
+    
+   
     [self performSegueWithIdentifier:@"login" sender:self];
-
 }
 
 
@@ -122,6 +126,30 @@
     }
         
 
+}
+
+-(void)pouplateToDB{
+    NSManagedObjectContext *context = [self managedObjectContext];
+    User *user = [NSEntityDescription insertNewObjectForEntityForName:@"User"
+                                       inManagedObjectContext:context];
+    user.userName = self.userName.text;
+    user.password = self.password.text;
+
+    EBToDo *todo = [NSEntityDescription insertNewObjectForEntityForName:@"EBToDo"
+                                          inManagedObjectContext:context];
+//    [failedBankDetails setValue:[NSDate date] forKey:@"closeDate"];
+//    [failedBankDetails setValue:[NSDate date] forKey:@"updateDate"];
+//    [failedBankDetails setValue:[NSNumber numberWithInt:12345] forKey:@"zip"];
+//    [failedBankDetails setValue:failedBankInfo forKey:@"info"];
+//    [failedBankInfo setValue:failedBankDetails forKey:@"details"];
+    NSError *error;
+    if (![context save:&error]) {
+        NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+    }
+    
+    //    EBRetriveToDoList *toDoRetriever=[EBRetriveToDoList alloc];
+    //    NSString *filePath=[toDoRetriever getToDoString];
+    //    self.todoList =[toDoRetriever getToDoList:filePath];
 }
 
 

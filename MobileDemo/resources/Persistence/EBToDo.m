@@ -10,6 +10,6 @@
 
 @implementation EBToDo
 
-@synthesize dueBy,entity,forward,identifier,participant,pendingActivity,pendingDate,performer,release,wfAction,wfInstance,wfNode,extendAttribute,thumbnail;
+@synthesize dueBy,toDoEntity,forward,identifier,participant,pendingActivity,pendingDate,performer,release,wfAction,wfInstance,wfNode,extendAttribute,thumbnail;
 @synthesize sad;
 @end

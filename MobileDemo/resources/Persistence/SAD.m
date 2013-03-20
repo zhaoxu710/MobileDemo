@@ -10,7 +10,6 @@
 
 @implementation SAD
 
-
 @synthesize order,b5_items;
 @synthesize sad_id,
 b14_declarant_tr,
@@ -35,6 +34,7 @@ b25_border_trans,
 b26_inland_trans,
 b29_exit_office_sub1,
 b29_exit_office_sub2,
+b29_exit_office_sub3,
 b30_location,
 b30_point,
 b48_deferred_pay;

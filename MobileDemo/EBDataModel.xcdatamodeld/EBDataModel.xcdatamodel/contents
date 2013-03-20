@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2057" systemVersion="12C3103" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="EBToDo" representedClassName="EBToDo" syncable="YES">
+        <attribute name="dueBy" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="extendAttribute" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="forward" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="participant" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="pendingActivity" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="pendingDate" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="performer" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="thumbnail" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="toDoEntity" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="toDoRelease" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="wfAction" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="wfInstance" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="wfNode" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="sads" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SAD" inverseName="todolist" inverseEntity="SAD" syncable="YES"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="User" inverseName="todolist" inverseEntity="User" syncable="YES"/>
+    </entity>
+    <entity name="Item" representedClassName="Item" syncable="YES">
+        <attribute name="b33_commodity_code" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="b34_origin_country" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="b35_gross_mass" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="b36_preference" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="b37_cat_type" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="b37_previous_pro" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="b37_requested_pro" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="b37_subcat" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="b38_net_mass" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="b40_prev_doc_abb" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="b40_prev_doc_sub1" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="b40_prev_doc_sub2" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="b40_prev_doc_type" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="b41_unit_num" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="b42_item_price" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="b46_stat_value" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="is_channel" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="item_num" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="sad" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="SAD" inverseName="items" inverseEntity="SAD" syncable="YES"/>
+    </entity>
+    <entity name="SAD" representedClassName="SAD" syncable="YES">
+        <attribute name="b1_decla_sub1" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="b1_decla_sub2" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="b5_items" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="b6_total_packages" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="b14_address" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="b14_country" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="b14_declarant_tr" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="b14_name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="b15_dispatch_ctr" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="b17_dest_country" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="b18_trans_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="b20_deliv_terms_sub1" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="b20_deliv_terms_sub2" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="b20_deliv_terms_sub3" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="b22_currency_code" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="b22_total_amount" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="b23_exchange_rate" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="b25_border_trans" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="b29_exit_office_sub1" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="b29_exit_office_sub2" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="b29_exit_office_sub3" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="b30_location" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="b30_point" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="b48_deferred_pay" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="boxa_office_code" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="boxa_office_country_code" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="boxa_office_sub_code" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cd_status" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cd_trade_move" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="order" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="t2_accept" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="t3_risk_assess" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="t4_check_risk" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="t6_conform" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="t15_discharge" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="version" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Item" inverseName="sad" inverseEntity="Item" syncable="YES"/>
+        <relationship name="todolist" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="EBToDo" inverseName="sads" inverseEntity="EBToDo" syncable="YES"/>
+    </entity>
+    <entity name="User" syncable="YES">
+        <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="todolist" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EBToDo" inverseName="user" inverseEntity="EBToDo" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="SAD" positionX="81" positionY="-36" width="128" height="613"/>
+        <element name="Item" positionX="306" positionY="83" width="128" height="328"/>
+        <element name="EBToDo" positionX="-108" positionY="234" width="128" height="283"/>
+        <element name="User" positionX="-108" positionY="-27" width="128" height="88"/>
+    </elements>
+</model>

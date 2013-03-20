@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreData/CoreData.h>
 
 @class TPKeyboardAvoidingScrollView;
 
 @interface LoginUIViewController : UIViewController<UITextFieldDelegate>
 
+@property (nonatomic,strong) NSManagedObjectContext* managedObjectContext;
 @property (nonatomic, retain) IBOutlet TPKeyboardAvoidingScrollView *scrollView;
 @property (nonatomic, retain) IBOutlet UIImageView *backgroundView;
 @property (nonatomic, retain) IBOutlet UITextField *userName;

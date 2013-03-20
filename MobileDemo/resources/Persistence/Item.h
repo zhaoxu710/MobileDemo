@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 
-@interface Item : NSObject
+@interface Item : NSManagedObject
 @property NSString  *item_num,
 *b33_commodity_code,
 *b34_origin_country,

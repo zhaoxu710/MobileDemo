@@ -82,45 +82,36 @@
 
 // trriger to-do
 - (IBAction)submit:(id)sender {
-    /*
-     &user_id=user3
-     &form_id=REG002_TaxPayer
-     &act=REG_APP_SUB
-     &clicked-id=tbSubmit
-     &context=
-     <context>
-        <workflow-instance-id>wi1358821889249</workflow-instance-id>
-        <workflow-action>response</workflow-action>
-        <workflow-node-id>1296537501089</workflow-node-id>
-     </context>
-     */
     NSURL *url=[NSURL URLWithString:@"http://129.184.13.94:14000//e-biscus/mobileFlowAction.action"];
     ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
-//
-//    Context *context;
-//    [context setWorkflow_instance_id:self.detailItem.wfInstance];
-//    [context setWorkflow_action:self.detailItem.wfAction];
-//    [context setWorkflow_node_id:self.detailItem.wfNode];
-//    ToDoRequest *toDoRequest;
-//    [toDoRequest setUser_id:@"user3"];
-//    [toDoRequest setForm_id:@"form_id"];
-//    [toDoRequest setAct:@"act"];
-//    [toDoRequest setClicked_id:@"tbSubmit"];
-//    [toDoRequest setContext:context];
-//    
-    [request setPostValue:@"user_id" forKey:@"user3"];
-    [request addPostValue:@"form_id" forKey:@"mobile"];
-    [request addPostValue:@"act" forKey:@"submit"];
-    [request addPostValue:@"clicked-id" forKey:@"tbsumit"];
-//    request addPostValue: forKey:(NSString *)
-//    [request startSynchronous];
-//
-//    NSData *responseData= [request responseData];
-    
-//    NSLog(@"response = %@",responseData);
     NSLog(@"detailItem.wfNode = %@",self.detailItem.wfNode);
     NSLog(@"detailItem.wfInstance = %@",self.detailItem.wfInstance);
     NSLog(@"detailItem.wfAction = %@",self.detailItem.wfAction);
+    
+//    [request setPostValue:@"user_id" forKey:@"user3"];
+//    [request addPostValue:@"form_id" forKey:@"mobile"];
+//    [request addPostValue:@"act" forKey:@"submit"];
+//    [request addPostValue:@"clicked-id" forKey:@"tbsumit"];
+    NSString *requestStr = [NSString stringWithFormat:@"<message><resourceid>NORMAL</resourceid><form-id>Mobile</form-id><clicked-id>tbSubmit</clicked-id><action>submit</action><user-id>user3</user-id><language>EN</language><context><workflow-instance-id>%@</workflow-instance-id><workflow-action>%@</workflow-action><workflow-node-id>%@</workflow-node-id></context></message>",self.detailItem.wfInstance,self.detailItem.wfAction,self.detailItem.wfNode];
+    NSData *myPostData = [requestStr dataUsingEncoding:NSUTF8StringEncoding];
+    
+    NSMutableData *myMutablePostData = [NSMutableData dataWithData:myPostData];
+    
+    [request setPostBody:myMutablePostData];
+    
+    [request setRequestMethod:@"POST"];
+    
+    [request addRequestHeader:@"Content-Type" value:@"application/xml"];
+    
+    [request setDelegate:self];
+    
+    [request startSynchronous];
+//    request addPostValue: forKey:(NSString *)
+//    [request startSynchronous];
+//
+   NSData *responseData= [request responseData];
+   NSLog(@"response = %@",responseData);
+
     
 }
 

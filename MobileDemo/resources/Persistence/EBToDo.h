@@ -7,11 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import <CoreData/CoreData.h>
 
 @class SAD;
-@interface EBToDo : NSObject{
-    NSString *entity;
+@interface EBToDo : NSManagedObject{
+    NSString *toDoEntity;
     NSString *forward;
     NSString *identifier;
     NSString *participant;
@@ -20,7 +20,7 @@
 
     NSString *pendingDate;
     NSString *performer;
-    NSString *release;
+    NSString *toDoRelease;
     NSString *wfAction;
     NSString *wfInstance;
     NSString *wfNode;
@@ -28,7 +28,7 @@
     NSDictionary *extendAttribute;
     UIImage *thumbnail;
 }
-@property NSString *entity,*forward,*identifier,*participant,*pendingActivity,*performer,*release,*wfAction,*wfInstance,*wfNode;
+@property NSString *toDoEntity,*forward,*identifier,*participant,*pendingActivity,*performer,*release,*wfAction,*wfInstance,*wfNode;
 @property NSString *dueBy,*pendingDate;
 @property NSDictionary *extendAttribute;
 @property SAD *sad;

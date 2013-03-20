@@ -8,9 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import <MapKit/MapKit.h>
+#import <CoreData/CoreData.h>
 #import "Item.h"
 
-@interface SAD : NSObject
+@interface SAD : NSManagedObject
 
 
 @property int order,b5_items;
@@ -52,24 +53,6 @@
 *t6_conform,
 *t15_discharge;
 @property NSMutableArray *items;
-
-
-//@property (nonatomic, assign) int order;
-//@property (nonatomic, copy) NSString *sadID;
-//@property (nonatomic, copy) NSString *type;
-//@property (nonatomic, copy) NSString *office;
-//@property (nonatomic, assign) int itemsSize;
-//@property (nonatomic, copy) NSString *fiscalChannel;
-//@property (nonatomic, assign) int *totalPackages;
-//@property (nonatomic, assign) int *totalGrossMass;
-//@property (nonatomic, assign) NSString *latText;
-//@property (nonatomic, assign) NSString *lonText;
-//@property (nonatomic, copy) NSString *consignor;
-//@property (nonatomic, copy) NSString *consignee;
-//@property (nonatomic, copy) NSString *port;
-//@property (nonatomic, copy) NSString *address;
-//@property (nonatomic, copy) NSDate  *arrivalDate;
-//@property (nonatomic, strong) NSMutableArray *items;
 
 -(CLLocationCoordinate2D)getLocation;
 

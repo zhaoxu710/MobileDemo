@@ -22,6 +22,8 @@
 		2A5E956016F2C62800F28190 /* submit.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A5E955A16F2C62800F28190 /* submit.png */; };
 		2A5E956116F2C62800F28190 /* submit@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A5E955B16F2C62800F28190 /* submit@2x.png */; };
 		2A98E66716F71059008A106A /* EBToDoRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A98E66616F71059008A106A /* EBToDoRequest.m */; };
+		2A98E66A16F9A49A008A106A /* EBDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2A98E66816F9A49A008A106A /* EBDataModel.xcdatamodeld */; };
+		2A98E66D16F9B99E008A106A /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A98E66C16F9B99D008A106A /* User.m */; };
 		2AB68DEF16D08011000B8E42 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AB68DEE16D08011000B8E42 /* MapKit.framework */; };
 		2AC2214916DF5C330083EE00 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AC2214816DF5C330083EE00 /* QuartzCore.framework */; };
 		2AC402CB16ED896B00524F81 /* Top-bar-top1.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AC402CA16ED896B00524F81 /* Top-bar-top1.png */; };
@@ -115,6 +117,9 @@
 		2A5E955B16F2C62800F28190 /* submit@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "submit@2x.png"; path = "MobileDemo/Resources/PNG/submit@2x.png"; sourceTree = "<group>"; };
 		2A98E66516F71059008A106A /* EBToDoRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EBToDoRequest.h; path = MobileDemo/Resources/Persistence/EBToDoRequest.h; sourceTree = "<group>"; };
 		2A98E66616F71059008A106A /* EBToDoRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EBToDoRequest.m; path = MobileDemo/Resources/Persistence/EBToDoRequest.m; sourceTree = "<group>"; };
+		2A98E66916F9A49A008A106A /* EBDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = EBDataModel.xcdatamodel; sourceTree = "<group>"; };
+		2A98E66B16F9B99D008A106A /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = MobileDemo/Resources/Persistence/User.h; sourceTree = "<group>"; };
+		2A98E66C16F9B99D008A106A /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = MobileDemo/Resources/Persistence/User.m; sourceTree = "<group>"; };
 		2AB68DEE16D08011000B8E42 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		2AC2214816DF5C330083EE00 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		2AC402CA16ED896B00524F81 /* Top-bar-top1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Top-bar-top1.png"; path = "MobileDemo/Resources/PNG/Top-bar-top1.png"; sourceTree = "<group>"; };
@@ -204,7 +209,6 @@
 		2AD1366716E9EF820077AB00 /* IOSLoginResponseParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IOSLoginResponseParser.m; path = MobileDemo/MainFame/Login/IOSLoginResponseParser.m; sourceTree = "<group>"; };
 		2AD1366816E9EF820077AB00 /* LoginUIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginUIViewController.h; path = MobileDemo/MainFame/Login/LoginUIViewController.h; sourceTree = "<group>"; };
 		2AD1366916E9EF820077AB00 /* LoginUIViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginUIViewController.m; path = MobileDemo/MainFame/Login/LoginUIViewController.m; sourceTree = "<group>"; };
-		2AD99D9916E4816000E468F8 /* coreDataProject.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = coreDataProject.xcdatamodel; sourceTree = "<group>"; };
 		2AE9BC5C16CF2C4D0076CEE1 /* MobileDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AE9BC6016CF2C4D0076CEE1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2AE9BC6216CF2C4D0076CEE1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -395,6 +399,8 @@
 				2AD1364616E9ED7D0077AB00 /* SAD.m */,
 				2A98E66516F71059008A106A /* EBToDoRequest.h */,
 				2A98E66616F71059008A106A /* EBToDoRequest.m */,
+				2A98E66B16F9B99D008A106A /* User.h */,
+				2A98E66C16F9B99D008A106A /* User.m */,
 			);
 			name = Persistence;
 			sourceTree = "<group>";
@@ -464,7 +470,7 @@
 		2AE9BC6716CF2C4D0076CEE1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				2AD99D9816E4816000E468F8 /* coreDataProject.xcdatamodeld */,
+				2A98E66816F9A49A008A106A /* EBDataModel.xcdatamodeld */,
 				2AE9BC6816CF2C4D0076CEE1 /* MobileDemo-Info.plist */,
 				2AE9BC6916CF2C4D0076CEE1 /* InfoPlist.strings */,
 				2AE9BC6C16CF2C4D0076CEE1 /* main.m */,
@@ -626,6 +632,8 @@
 				2ACC7F6416EF20D70083584A /* TransformableTableViewCell.m in Sources */,
 				2ACC7F6516EF20D70083584A /* UIColor+JTGestureBasedTableViewHelper.m in Sources */,
 				2A98E66716F71059008A106A /* EBToDoRequest.m in Sources */,
+				2A98E66A16F9A49A008A106A /* EBDataModel.xcdatamodeld in Sources */,
+				2A98E66D16F9B99E008A106A /* User.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -753,14 +761,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		2AD99D9816E4816000E468F8 /* coreDataProject.xcdatamodeld */ = {
+		2A98E66816F9A49A008A106A /* EBDataModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				2AD99D9916E4816000E468F8 /* coreDataProject.xcdatamodel */,
+				2A98E66916F9A49A008A106A /* EBDataModel.xcdatamodel */,
 			);
-			currentVersion = 2AD99D9916E4816000E468F8 /* coreDataProject.xcdatamodel */;
-			name = coreDataProject.xcdatamodeld;
-			path = ../coreDataProject.xcdatamodeld;
+			currentVersion = 2A98E66916F9A49A008A106A /* EBDataModel.xcdatamodel */;
+			path = EBDataModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
