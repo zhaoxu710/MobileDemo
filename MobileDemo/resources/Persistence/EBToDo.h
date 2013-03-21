@@ -9,7 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class SAD;
+
+@class User,SAD;
 @interface EBToDo : NSManagedObject{
     NSString *toDoEntity;
     NSString *forward;
@@ -33,5 +34,6 @@
 @property NSDictionary *extendAttribute;
 @property SAD *sad;
 @property UIImage *thumbnail;
+@property User *user;
 
 @end

@@ -17,7 +17,7 @@
 @property NSMutableArray *toDoList;
 
 //- (NSArray*) getSADList;
-- (NSString*) getToDoString;
+- (NSString*) getToDoString:(NSString*)userName;
 - (NSMutableArray *)getToDoList:(NSString *)toDoString;
 - (EBToDo*)getToDoAtIndex:(NSInteger*)atPath;
 -(SAD*)populateSAD:(GDataXMLElement*)sadElement;

@@ -14,6 +14,7 @@
 #import "IOSLoginResponse.h"
 #import "User.h"
 #import "EBToDo.h"
+#import "EBRetriveToDoList.h"
 
 
 @implementation LoginUIViewController{
@@ -21,6 +22,7 @@
 }
 
 @synthesize managedObjectContext;
+
 @synthesize userName;
 @synthesize password;
 @synthesize enter;
@@ -54,7 +56,7 @@
 
 - (IBAction)buttonPressed:(id)sender{
     // connect server to autorise
-    /*
+    
     NSURL *loginUrl=[NSURL URLWithString:@"http://129.184.13.94:14000/e-biscus/iosLoginAction.action"];
     ASIFormDataRequest *myRequest=[ASIFormDataRequest requestWithURL:loginUrl];
     NSLog(@"user name = %@" , userName.text);
@@ -79,15 +81,16 @@
     NSLog(@"loginResponse is %@", loginResponse.isValid);
     if (loginResponse.isValid && [loginResponse.isValid isEqualToString:@"TRUE"]) {
         NSLog(@"login");
-//        [self performSegueWithIdentifier:@"login" sender:self];
+        [self pouplateToDB];
+        [self performSegueWithIdentifier:@"login" sender:self];
     }else{
         // jump to mainViewController
         [alert show];
     }
-     */
+    
     
    
-    [self performSegueWithIdentifier:@"login" sender:self];
+//    [self performSegueWithIdentifier:@"login" sender:self];
 }
 
 
@@ -129,27 +132,51 @@
 }
 
 -(void)pouplateToDB{
-    NSManagedObjectContext *context = [self managedObjectContext];
+    // Get a reference to the managed object context *through* the accessor
+    NSManagedObjectContext* context = [self managedObjectContext];
+    if (!context) {
+        NSLog(@"context is nil");
+    }else{
+         NSLog(@"context is not nil");
+    }
     User *user = [NSEntityDescription insertNewObjectForEntityForName:@"User"
                                        inManagedObjectContext:context];
     user.userName = self.userName.text;
     user.password = self.password.text;
-
-    EBToDo *todo = [NSEntityDescription insertNewObjectForEntityForName:@"EBToDo"
-                                          inManagedObjectContext:context];
-//    [failedBankDetails setValue:[NSDate date] forKey:@"closeDate"];
-//    [failedBankDetails setValue:[NSDate date] forKey:@"updateDate"];
-//    [failedBankDetails setValue:[NSNumber numberWithInt:12345] forKey:@"zip"];
-//    [failedBankDetails setValue:failedBankInfo forKey:@"info"];
-//    [failedBankInfo setValue:failedBankDetails forKey:@"details"];
+    
+    NSLog(@"get todo list by username");
+    EBRetriveToDoList *toDoRetriever=[EBRetriveToDoList alloc];
+    NSString *strToDoList =[toDoRetriever getToDoString:self.userName.text];
+    NSMutableArray *todoList =[toDoRetriever getToDoList:strToDoList];
+    for(EBToDo *item in todoList){
+        EBToDo *todo = [NSEntityDescription insertNewObjectForEntityForName:@"EBToDo"
+                                                     inManagedObjectContext:context];
+        todo = item;
+        [todo setValue:user forKey:@"user"];
+    }
+    [user setValue:todoList forKey:@"todolist"];
+ 
     NSError *error;
     if (![context save:&error]) {
         NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
     }
     
-    //    EBRetriveToDoList *toDoRetriever=[EBRetriveToDoList alloc];
-    //    NSString *filePath=[toDoRetriever getToDoString];
-    //    self.todoList =[toDoRetriever getToDoList:filePath];
+    // Test listing all FailedBankInfos from the store
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"User"
+                                              inManagedObjectContext:context];
+    [fetchRequest setEntity:entity];
+    NSArray *fetchedObjects = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    for (User *u in fetchedObjects) {
+        NSLog(@"user Name: %@", u.userName);
+        
+        NSMutableArray *details = user.todolist;
+        for(EBToDo *todo in details){
+            NSLog(@"todo wfInstance: %@", todo.wfInstance);
+        }
+        
+    }
+
 }
 
 

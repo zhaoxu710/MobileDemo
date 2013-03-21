@@ -14,7 +14,7 @@
 
 @implementation EBRetriveToDoList
 @synthesize toDoList;
--(NSString*) getToDoString{
+-(NSString*) getToDoString:(NSString*)userName{
     /*
     NSString *filePath = [[NSBundle mainBundle] pathForResource:@"todo" ofType:@"xml"];
     
@@ -24,9 +24,11 @@
     
     NSString *toDoString = [NSString stringWithContentsOfFile:filePath];
      */
-    NSURL *loginUrl=[NSURL URLWithString:@"http://129.184.13.94:14000/e-biscus/service/rest/todo/mytask/user3"];
+    
+    NSString *url = [NSString stringWithFormat:@"http://129.184.13.94:14000/e-biscus/service/rest/todo/mytask/%@", userName];
+    NSURL *loginUrl=[NSURL URLWithString:url];
     ASIHTTPRequest *myRequest=[ASIHTTPRequest requestWithURL:loginUrl];
-        [myRequest startSynchronous];
+    [myRequest startSynchronous];
     
     NSString *toDoString=[myRequest responseString];
     toDoString=[toDoString stringByReplacingOccurrencesOfString:@"&lt;" withString:@"<"];

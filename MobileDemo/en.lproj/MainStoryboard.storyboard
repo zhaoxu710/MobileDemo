@@ -289,7 +289,7 @@
                                 <items>
                                     <barButtonItem id="A2F-9K-j5U">
                                         <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" segmentControlStyle="bar" selectedSegmentIndex="0" momentary="YES" id="1dd-Yj-DEF">
-                                            <rect key="frame" x="7" y="7" width="161" height="31"/>
+                                            <rect key="frame" x="7" y="8" width="161" height="31"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <segments>
                                                 <segment title="" image="Map.png"/>

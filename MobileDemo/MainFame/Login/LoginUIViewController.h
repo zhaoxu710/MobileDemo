@@ -14,11 +14,17 @@
 @interface LoginUIViewController : UIViewController<UITextFieldDelegate>
 
 @property (nonatomic,strong) NSManagedObjectContext* managedObjectContext;
+
 @property (nonatomic, retain) IBOutlet TPKeyboardAvoidingScrollView *scrollView;
+
 @property (nonatomic, retain) IBOutlet UIImageView *backgroundView;
+
 @property (nonatomic, retain) IBOutlet UITextField *userName;
+
 @property (nonatomic, retain) IBOutlet UITextField *password;
+
 @property (nonatomic, retain) IBOutlet UIButton *enter;
+
 @property BOOL isValid;
 
 - (IBAction)buttonPressed:(id)sender;
