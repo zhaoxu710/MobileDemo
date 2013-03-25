@@ -7,15 +7,12 @@
 //
 
 #import "MainViewController.h"
-
-
-
-@interface MainViewController ()
-
-@end
+#import "MapSplitViewController.h"
+#import "CoreDataHelper.h"
 
 @implementation MainViewController
 
+@synthesize managedObjectContext;
 @synthesize viewContainer = _viewContainer;
 @synthesize segmentedButton = _segmentedButton;
 @synthesize viewControllers = _viewControllers;
@@ -33,6 +30,11 @@
    
     // custom segemented button
     // TODO
+    if (managedObjectContext) {
+        NSLog(@"MainViewController context is not null");
+    }else{
+        NSLog(@"MainViewController context is null");
+    }
     
     // add viewController so you can switch them later.
     UIViewController *vc = [self viewControllerForSegmentIndex:self.segmentedButton.selectedSegmentIndex];
@@ -71,13 +73,31 @@
 - (UIViewController *)viewControllerForSegmentIndex:(NSInteger)index {
     UIViewController *vc;
     switch (index) {
-        case 0:
-            vc = [self.storyboard instantiateViewControllerWithIdentifier:@"mapview"];
-            break;
+        case 0:{
+                vc = [self.storyboard instantiateViewControllerWithIdentifier:@"mapview"];
+                MapSplitViewController *mvc = (MapSplitViewController *)vc;
+                mvc.managedObjectContext = self.managedObjectContext;
+                vc = mvc;
+                break;
+            }
         case 1:
             vc = [self.storyboard instantiateViewControllerWithIdentifier:@"thumnail"];
             break;
     }
     return vc;
+}
+
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"logout"]) {
+        
+        // clean up all data
+        [CoreDataHelper deleteAllObjectsForEntity:@"User" andContext:self.managedObjectContext];
+        [CoreDataHelper deleteAllObjectsForEntity:@"EBToDo" andContext:self.managedObjectContext];
+        [CoreDataHelper deleteAllObjectsForEntity:@"SAD" andContext:self.managedObjectContext];
+        
+        [[segue destinationViewController] setManagedObjectContext:self.managedObjectContext];
+    }
 }
 @end

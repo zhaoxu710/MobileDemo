@@ -25,6 +25,19 @@
     }else{
         NSLog(@"context is nill");
     }
+    //clean up data
+    NSPersistentStore *store = [self.persistentStoreCoordinator.persistentStores lastObject];
+    NSError *error = nil;
+    NSURL *storeURL = store.URL;
+    [self.persistentStoreCoordinator removePersistentStore:store error:&error];
+    [[NSFileManager defaultManager] removeItemAtURL:storeURL error:&error];
+    NSLog(@"Data Reset");
+    
+    //Make new persistent store for future saves   (Taken From Above Answer)
+    if (![self.persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]) {
+        // do something with the error
+    }
+
     // Override point for customization after application launch.
     LoginUIViewController *controller = (LoginUIViewController *)self.window.rootViewController;
     controller.managedObjectContext = self.managedObjectContext;
@@ -100,7 +113,7 @@
     if (__managedObjectModel != nil) {
         return __managedObjectModel;
     }
-    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"EBDataModel" withExtension:@"momd"];
+    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"EBiscusDataModels" withExtension:@"momd"];
     __managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
     return __managedObjectModel;
 }
@@ -113,7 +126,7 @@
         return __persistentStoreCoordinator;
     }
     
-    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"EBDataModel.sqlite"];
+    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"EBiscusDataModels.sqlite"];
     
     NSError *error = nil;
     __persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];

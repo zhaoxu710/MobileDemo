@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "MapSplitViewController.h"
+#import <CoreData/CoreData.h>
 
 @interface MainViewController : UIViewController
 
+
+@property (nonatomic, strong) NSManagedObjectContext* managedObjectContext;
 @property (nonatomic, retain) IBOutlet UIView *viewContainer;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedButton;
 @property (strong, nonatomic) NSArray *viewControllers;

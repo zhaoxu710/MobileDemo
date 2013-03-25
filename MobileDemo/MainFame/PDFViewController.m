@@ -28,26 +28,27 @@
 @synthesize detailItem;
 @synthesize webview;
 @synthesize progressview;
+@synthesize managedObjectContext;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
+
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    if (managedObjectContext) {
+        NSLog(@"PDFViewController context is not null");
+    }else{
+        NSLog(@"PDFViewController context is null");
+    }
+    
 	// Do any additional setup after loading the view.
     UIImage *barsBack = [UIImage imageNamed:@"Top-bar-top1.png"];
     [[UIToolbar appearance] setBackgroundImage:barsBack forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
     
     
     // load pdf from server
-    SAD *sad = self.detailItem.sad;
+    SAD *sad = self.detailItem.sads;
     if (sad) {
         NSString *url = [[NSString alloc] initWithFormat:@"http://ieintg:14000/e-biscus/Report/ReportServlet?sadid=%@&version=%@&lang=EN", sad.sad_id,sad.version];
         NSLog(@"url = %@",url);
@@ -144,4 +145,13 @@
 {
     [self.webview loadData:responseData MIMEType:@"application/pdf" textEncodingName: @"UTF-8" baseURL:nil];
 }
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"back"]) {
+      [[segue destinationViewController] setManagedObjectContext:self.managedObjectContext];
+    }
+    
+}
+
 @end

@@ -2,87 +2,55 @@
 //  SAD.m
 //  MobileDemo
 //
-//  Created by bull on 2/17/13.
+//  Created by bull on 3/25/13.
 //  Copyright (c) 2013 bull. All rights reserved.
 //
 
 #import "SAD.h"
+#import "EBToDo.h"
+#import "Item.h"
+
 
 @implementation SAD
 
-@synthesize order,b5_items;
-@synthesize sad_id,
-b14_declarant_tr,
-b14_address,
-b14_country,
-b14_name,
-b15_dispatch_ctr,
-b17_dest_country,
-b18_trans_id,
-b20_deliv_terms_sub1,
-b20_deliv_terms_sub2,
-b20_deliv_terms_sub3,
-b22_currency_code,
-b1_decla_sub1,
-b1_decla_sub2,
-boxa_office_code,
-boxa_office_country_code,
-boxa_office_sub_code,
-cd_status,
-cd_trade_move,
-b25_border_trans,
-b26_inland_trans,
-b29_exit_office_sub1,
-b29_exit_office_sub2,
-b29_exit_office_sub3,
-b30_location,
-b30_point,
-b48_deferred_pay;
-@synthesize b6_total_packages,
-version,
-b22_total_amount,
-b23_exchange_rate;
-@synthesize t2_accept,
-t3_risk_assess,
-t4_check_risk,
-t6_conform,
-t15_discharge;
-@synthesize items;
-
-
-//@synthesize order;
-//@synthesize sadID;
-//@synthesize type;
-//@synthesize office;
-//@synthesize itemsSize;
-//@synthesize fiscalChannel;
-//@synthesize totalPackages;
-//@synthesize totalGrossMass;
-//@synthesize latText;
-//@synthesize lonText;
-//@synthesize consignor;
-//@synthesize consignee;
-//@synthesize port;
-//@synthesize address;
-//@synthesize arrivalDate;
-//@synthesize items;
-
-- (CLLocationCoordinate2D)getLocation{
-    CLLocationCoordinate2D location ;
-    NSArray *str = [b30_point componentsSeparatedByString:@","];
-    if (str.count==2) {
-
-        NSString *latText = str[0];
-        NSString *lonText = str[1];
-        if(latText!=nil &&lonText!=nil){
-            CLLocationDegrees latitude = [latText doubleValue];
-            CLLocationDegrees longitude = [lonText doubleValue];
-            location =CLLocationCoordinate2DMake( latitude, longitude);
-          
-        }
-    }
-    return location;
-
-}
+@dynamic b1_decla_sub1;
+@dynamic b1_decla_sub2;
+@dynamic b5_items;
+@dynamic b6_total_packages;
+@dynamic b14_address;
+@dynamic b14_country;
+@dynamic b14_declarant_tr;
+@dynamic b14_name;
+@dynamic b15_dispatch_ctr;
+@dynamic b17_dest_country;
+@dynamic b18_trans_id;
+@dynamic b20_deliv_terms_sub1;
+@dynamic b20_deliv_terms_sub2;
+@dynamic b20_deliv_terms_sub3;
+@dynamic b22_currency_code;
+@dynamic b22_total_amount;
+@dynamic b23_exchange_rate;
+@dynamic b25_border_trans;
+@dynamic b29_exit_office_sub1;
+@dynamic b29_exit_office_sub2;
+@dynamic b29_exit_office_sub3;
+@dynamic b30_location;
+@dynamic b30_point;
+@dynamic b48_deferred_pay;
+@dynamic boxa_office_code;
+@dynamic boxa_office_country_code;
+@dynamic boxa_office_sub_code;
+@dynamic cd_status;
+@dynamic cd_trade_move;
+@dynamic order;
+@dynamic t2_accept;
+@dynamic t3_risk_assess;
+@dynamic t4_check_risk;
+@dynamic t6_conform;
+@dynamic t15_discharge;
+@dynamic version;
+@dynamic sad_id;
+@dynamic items;
+@dynamic todolist;
 
 @end

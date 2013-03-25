@@ -43,14 +43,14 @@
     // Update the user interface for the detail item.
     
     if (self.detailItem) {
-        SAD  *sad = self.detailItem.sad;
+        SAD  *sad = self.detailItem.sads;
         
         for (id<MKAnnotation> annotation in _mapView.annotations) {
             [_mapView removeAnnotation:annotation];
         }
         
         CLLocationCoordinate2D coordinate;
-        coordinate = [sad getLocation];
+        coordinate = [self getLocation:sad.b30_point];
         
         SADAnnotation *annotation = [[SADAnnotation alloc] initWithName:sad.boxa_office_sub_code address:sad.b14_address coordinate:coordinate] ;
         [self gotoLocation:coordinate];
@@ -144,6 +144,24 @@
     
     
     return nil;
+}
+
+- (CLLocationCoordinate2D)getLocation:(NSString *)point{
+       CLLocationCoordinate2D location ;
+      NSArray *str = [point componentsSeparatedByString:@","];
+     if (str.count==2) {
+      
+              NSString *latText = str[0];
+             NSString *lonText = str[1];
+             if(latText!=nil &&lonText!=nil){
+                      CLLocationDegrees latitude = [latText doubleValue];
+                      CLLocationDegrees longitude = [lonText doubleValue];
+                      location =CLLocationCoordinate2DMake( latitude, longitude);
+                    
+                  }
+          }
+       return location;
+    
 }
 
 @end

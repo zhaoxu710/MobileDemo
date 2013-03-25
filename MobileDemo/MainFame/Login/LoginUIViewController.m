@@ -12,17 +12,16 @@
 #import "ASIFormDataRequest.h"
 #import "IOSLoginResponseParser.h"
 #import "IOSLoginResponse.h"
-#import "User.h"
-#import "EBToDo.h"
-#import "EBRetriveToDoList.h"
+#import "EBToDoListHelper.h"
+#import "AppDelegate.h"
 
+#define LOGIN_URL @"http://129.184.13.94:14000/e-biscus/iosLoginAction.action"
 
 @implementation LoginUIViewController{
     IOSLoginResponse *loginResponse;
 }
 
 @synthesize managedObjectContext;
-
 @synthesize userName;
 @synthesize password;
 @synthesize enter;
@@ -55,31 +54,19 @@
 
 
 - (IBAction)buttonPressed:(id)sender{
-    // connect server to autorise
-    
-    NSURL *loginUrl=[NSURL URLWithString:@"http://129.184.13.94:14000/e-biscus/iosLoginAction.action"];
-    ASIFormDataRequest *myRequest=[ASIFormDataRequest requestWithURL:loginUrl];
-    NSLog(@"user name = %@" , userName.text);
-    NSLog(@"password = %@" , password.text);
-    [myRequest setPostValue:userName.text forKey:@"userName"];
-    [myRequest setPostValue:password.text forKey:@"password"];
-    [myRequest setPostValue:@"CR" forKey:@"service"];
-    [myRequest setPostValue:@"mac" forKey:@"mac"];
-    [myRequest startSynchronous];
-    NSData *responseData=[myRequest responseData];
-    
-    NSLog(@"response = %@",responseData);
-    loginResponse=[IOSLoginResponseParser parse:responseData];
-    
-    if(loginResponse==nil){
-        NSLog(@"loginResponse is nil");
+    // error message
+    NSString *message;
+    if (userName.text) {
+        message=[NSString stringWithFormat:@"%@ is not valid",userName.text];
+        
+    }else{
+        message =[NSString stringWithFormat:@"please input valid user/password"];
+        
     }
-     NSString *message =[NSString stringWithFormat:@"%@ is not valid",userName.text];
-    
-    UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Login failed" message:message delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
     NSLog(@"alert message=%@",message);
-    NSLog(@"loginResponse is %@", loginResponse.isValid);
-    if (loginResponse.isValid && [loginResponse.isValid isEqualToString:@"TRUE"]) {
+    UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Login failed" message:message delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
+    
+    if ([self sendLoginRequest]) {
         NSLog(@"login");
         [self pouplateToDB];
         [self performSegueWithIdentifier:@"login" sender:self];
@@ -87,10 +74,6 @@
         // jump to mainViewController
         [alert show];
     }
-    
-    
-   
-//    [self performSegueWithIdentifier:@"login" sender:self];
 }
 
 
@@ -127,56 +110,53 @@
     if ([textField isEqual:password]) {
         [self buttonPressed:textField];
     }
-        
+}
 
+// login request
+- (BOOL)sendLoginRequest{
+    
+    NSURL *loginUrl=[NSURL URLWithString:LOGIN_URL];
+    ASIFormDataRequest *myRequest=[ASIFormDataRequest requestWithURL:loginUrl];
+    NSLog(@"user name = %@" , userName.text);
+    NSLog(@"password = %@" , password.text);
+    [myRequest setPostValue:userName.text forKey:@"userName"];
+    [myRequest setPostValue:password.text forKey:@"password"];
+    [myRequest setPostValue:@"CR" forKey:@"service"];
+    [myRequest setPostValue:@"mac" forKey:@"mac"];
+    [myRequest startSynchronous];
+    NSData *responseData=[myRequest responseData];
+    
+    NSLog(@"response = %@",responseData);
+    loginResponse=[IOSLoginResponseParser parse:responseData];
+    
+    if(loginResponse==nil){
+        NSLog(@"loginResponse is nil");
+    }
+    
+    NSLog(@"loginResponse is %@", loginResponse.isValid);
+    
+    return loginResponse.isValid && [loginResponse.isValid isEqualToString:@"TRUE"];
 }
 
 -(void)pouplateToDB{
     // Get a reference to the managed object context *through* the accessor
-    NSManagedObjectContext* context = [self managedObjectContext];
-    if (!context) {
-        NSLog(@"context is nil");
+    
+    if (!self.managedObjectContext) {
+        NSLog(@"Login context is nil");
     }else{
-         NSLog(@"context is not nil");
+         NSLog(@"Login context is not nil");
     }
-    User *user = [NSEntityDescription insertNewObjectForEntityForName:@"User"
-                                       inManagedObjectContext:context];
-    user.userName = self.userName.text;
-    user.password = self.password.text;
-    
-    NSLog(@"get todo list by username");
-    EBRetriveToDoList *toDoRetriever=[EBRetriveToDoList alloc];
-    NSString *strToDoList =[toDoRetriever getToDoString:self.userName.text];
-    NSMutableArray *todoList =[toDoRetriever getToDoList:strToDoList];
-    for(EBToDo *item in todoList){
-        EBToDo *todo = [NSEntityDescription insertNewObjectForEntityForName:@"EBToDo"
-                                                     inManagedObjectContext:context];
-        todo = item;
-        [todo setValue:user forKey:@"user"];
-    }
-    [user setValue:todoList forKey:@"todolist"];
- 
-    NSError *error;
-    if (![context save:&error]) {
-        NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
-    }
-    
-    // Test listing all FailedBankInfos from the store
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"User"
-                                              inManagedObjectContext:context];
-    [fetchRequest setEntity:entity];
-    NSArray *fetchedObjects = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
-    for (User *u in fetchedObjects) {
-        NSLog(@"user Name: %@", u.userName);
+    EBToDoListHelper *toDoRetriever=[[EBToDoListHelper alloc] initWtihContext:self.managedObjectContext];
+    [toDoRetriever insertToDoToDB:self.userName.text andPassword:self.password.text];
         
-        NSMutableArray *details = user.todolist;
-        for(EBToDo *todo in details){
-            NSLog(@"todo wfInstance: %@", todo.wfInstance);
-        }
-        
-    }
+}
 
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"login"]) {
+        [[segue destinationViewController] setManagedObjectContext:self.managedObjectContext];
+    }
 }
 
 

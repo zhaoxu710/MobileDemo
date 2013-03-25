@@ -8,8 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2A0083F016DB785A00D16EE3 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A0083EF16DB785A00D16EE3 /* CoreData.framework */; };
-		2A5E954916F02A7D00F28190 /* EBRetriveToDoList.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A5E954616F0263600F28190 /* EBRetriveToDoList.m */; };
-		2A5E954A16F02A7F00F28190 /* EBToDo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A5E954816F0263600F28190 /* EBToDo.m */; };
+		2A5E954916F02A7D00F28190 /* EBToDoListHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A5E954616F0263600F28190 /* EBToDoListHelper.m */; };
 		2A5E954D16F2C45900F28190 /* PDFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A5E954C16F2C45900F28190 /* PDFViewController.m */; };
 		2A5E955216F2C60600F28190 /* camera.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A5E954E16F2C60600F28190 /* camera.png */; };
 		2A5E955316F2C60600F28190 /* camera@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A5E954F16F2C60600F28190 /* camera@2x.png */; };
@@ -21,9 +20,13 @@
 		2A5E955F16F2C62800F28190 /* picture@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A5E955916F2C62800F28190 /* picture@2x.png */; };
 		2A5E956016F2C62800F28190 /* submit.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A5E955A16F2C62800F28190 /* submit.png */; };
 		2A5E956116F2C62800F28190 /* submit@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A5E955B16F2C62800F28190 /* submit@2x.png */; };
+		2A6A37BF16FC5EDE00C17437 /* CoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6A37BE16FC5EDE00C17437 /* CoreDataHelper.m */; };
+		2A6A37C216FFF3C700C17437 /* EBToDo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6A37C116FFF3C700C17437 /* EBToDo.m */; };
+		2A6A37C516FFF44D00C17437 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6A37C416FFF44D00C17437 /* Item.m */; };
+		2A6A37CB16FFF44D00C17437 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6A37CA16FFF44D00C17437 /* User.m */; };
+		2A6A37CE16FFF61300C17437 /* SAD.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6A37CD16FFF61300C17437 /* SAD.m */; };
 		2A98E66716F71059008A106A /* EBToDoRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A98E66616F71059008A106A /* EBToDoRequest.m */; };
-		2A98E66A16F9A49A008A106A /* EBDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2A98E66816F9A49A008A106A /* EBDataModel.xcdatamodeld */; };
-		2A98E66D16F9B99E008A106A /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A98E66C16F9B99D008A106A /* User.m */; };
+		2A98E66A16F9A49A008A106A /* EBiscusDataModels.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2A98E66816F9A49A008A106A /* EBiscusDataModels.xcdatamodeld */; };
 		2AB68DEF16D08011000B8E42 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AB68DEE16D08011000B8E42 /* MapKit.framework */; };
 		2AC2214916DF5C330083EE00 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AC2214816DF5C330083EE00 /* QuartzCore.framework */; };
 		2AC402CB16ED896B00524F81 /* Top-bar-top1.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AC402CA16ED896B00524F81 /* Top-bar-top1.png */; };
@@ -62,7 +65,6 @@
 		2AD1363F16E9ED200077AB00 /* Top-bar-top.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AD1362616E9ED200077AB00 /* Top-bar-top.png */; };
 		2AD1364016E9ED200077AB00 /* Top-bar.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AD1362716E9ED200077AB00 /* Top-bar.png */; };
 		2AD1364116E9ED200077AB00 /* Top-bar1.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AD1362816E9ED200077AB00 /* Top-bar1.png */; };
-		2AD1364716E9ED7D0077AB00 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD1364416E9ED7D0077AB00 /* Item.m */; };
 		2AD1366A16E9EF820077AB00 /* IOSLoginResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD1366516E9EF820077AB00 /* IOSLoginResponse.m */; };
 		2AD1366B16E9EF820077AB00 /* IOSLoginResponseParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD1366716E9EF820077AB00 /* IOSLoginResponseParser.m */; };
 		2AD1366C16E9EF820077AB00 /* LoginUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD1366916E9EF820077AB00 /* LoginUIViewController.m */; };
@@ -90,7 +92,6 @@
 		2AE9BC7116CF2C4D0076CEE1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE9BC7016CF2C4D0076CEE1 /* AppDelegate.m */; };
 		2AE9BC7A16CF2C4D0076CEE1 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AE9BC7816CF2C4D0076CEE1 /* MainStoryboard.storyboard */; };
 		A751FB2F16EC687000EB3475 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A751FB2E16EC687000EB3475 /* CoreLocation.framework */; };
-		A751FB3016EC72ED00EB3475 /* SAD.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD1364616E9ED7D0077AB00 /* SAD.m */; };
 		A751FB6E16ED03DC00EB3475 /* BasicMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = A751FB6716ED013300EB3475 /* BasicMapAnnotation.m */; };
 		A751FB6F16ED03EE00EB3475 /* CallOutAnnotationVifew.m in Sources */ = {isa = PBXBuildFile; fileRef = A751FB6916ED013300EB3475 /* CallOutAnnotationVifew.m */; };
 		A751FB7016ED03F000EB3475 /* CalloutMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = A751FB6B16ED013300EB3475 /* CalloutMapAnnotation.m */; };
@@ -99,8 +100,8 @@
 
 /* Begin PBXFileReference section */
 		2A0083EF16DB785A00D16EE3 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		2A5E954516F0263600F28190 /* EBRetriveToDoList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = EBRetriveToDoList.h; path = MobileDemo/Resources/Persistence/EBRetriveToDoList.h; sourceTree = "<group>"; };
-		2A5E954616F0263600F28190 /* EBRetriveToDoList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = EBRetriveToDoList.m; path = MobileDemo/Resources/Persistence/EBRetriveToDoList.m; sourceTree = "<group>"; };
+		2A5E954516F0263600F28190 /* EBToDoListHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = EBToDoListHelper.h; path = MobileDemo/Resources/Persistence/EBToDoListHelper.h; sourceTree = "<group>"; };
+		2A5E954616F0263600F28190 /* EBToDoListHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = EBToDoListHelper.m; path = MobileDemo/Resources/Persistence/EBToDoListHelper.m; sourceTree = "<group>"; };
 		2A5E954716F0263600F28190 /* EBToDo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = EBToDo.h; path = MobileDemo/Resources/Persistence/EBToDo.h; sourceTree = "<group>"; };
 		2A5E954816F0263600F28190 /* EBToDo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = EBToDo.m; path = MobileDemo/Resources/Persistence/EBToDo.m; sourceTree = "<group>"; };
 		2A5E954B16F2C45900F28190 /* PDFViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDFViewController.h; path = MobileDemo/MainFame/PDFViewController.h; sourceTree = "<group>"; };
@@ -115,9 +116,19 @@
 		2A5E955916F2C62800F28190 /* picture@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "picture@2x.png"; path = "MobileDemo/Resources/PNG/picture@2x.png"; sourceTree = "<group>"; };
 		2A5E955A16F2C62800F28190 /* submit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = submit.png; path = MobileDemo/Resources/PNG/submit.png; sourceTree = "<group>"; };
 		2A5E955B16F2C62800F28190 /* submit@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "submit@2x.png"; path = "MobileDemo/Resources/PNG/submit@2x.png"; sourceTree = "<group>"; };
+		2A6A37BD16FC5EDE00C17437 /* CoreDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreDataHelper.h; path = MobileDemo/Resources/Persistence/CoreDataHelper.h; sourceTree = "<group>"; };
+		2A6A37BE16FC5EDE00C17437 /* CoreDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreDataHelper.m; path = MobileDemo/Resources/Persistence/CoreDataHelper.m; sourceTree = "<group>"; };
+		2A6A37C016FFF3C700C17437 /* EBToDo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EBToDo.h; path = Resources/Persistence/EBToDo.h; sourceTree = "<group>"; };
+		2A6A37C116FFF3C700C17437 /* EBToDo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EBToDo.m; path = Resources/Persistence/EBToDo.m; sourceTree = "<group>"; };
+		2A6A37C316FFF44D00C17437 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Item.h; path = Resources/Persistence/Item.h; sourceTree = "<group>"; };
+		2A6A37C416FFF44D00C17437 /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Item.m; path = Resources/Persistence/Item.m; sourceTree = "<group>"; };
+		2A6A37C916FFF44D00C17437 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = Resources/Persistence/User.h; sourceTree = "<group>"; };
+		2A6A37CA16FFF44D00C17437 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = Resources/Persistence/User.m; sourceTree = "<group>"; };
+		2A6A37CC16FFF61300C17437 /* SAD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SAD.h; path = Resources/Persistence/SAD.h; sourceTree = "<group>"; };
+		2A6A37CD16FFF61300C17437 /* SAD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SAD.m; path = Resources/Persistence/SAD.m; sourceTree = "<group>"; };
 		2A98E66516F71059008A106A /* EBToDoRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EBToDoRequest.h; path = MobileDemo/Resources/Persistence/EBToDoRequest.h; sourceTree = "<group>"; };
 		2A98E66616F71059008A106A /* EBToDoRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EBToDoRequest.m; path = MobileDemo/Resources/Persistence/EBToDoRequest.m; sourceTree = "<group>"; };
-		2A98E66916F9A49A008A106A /* EBDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = EBDataModel.xcdatamodel; sourceTree = "<group>"; };
+		2A98E66916F9A49A008A106A /* EBiscusDataModels.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = EBiscusDataModels.xcdatamodel; sourceTree = "<group>"; };
 		2A98E66B16F9B99D008A106A /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = MobileDemo/Resources/Persistence/User.h; sourceTree = "<group>"; };
 		2A98E66C16F9B99D008A106A /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = MobileDemo/Resources/Persistence/User.m; sourceTree = "<group>"; };
 		2AB68DEE16D08011000B8E42 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -389,8 +400,8 @@
 		2AD1364216E9ED730077AB00 /* Persistence */ = {
 			isa = PBXGroup;
 			children = (
-				2A5E954516F0263600F28190 /* EBRetriveToDoList.h */,
-				2A5E954616F0263600F28190 /* EBRetriveToDoList.m */,
+				2A5E954516F0263600F28190 /* EBToDoListHelper.h */,
+				2A5E954616F0263600F28190 /* EBToDoListHelper.m */,
 				2A5E954716F0263600F28190 /* EBToDo.h */,
 				2A5E954816F0263600F28190 /* EBToDo.m */,
 				2AD1364316E9ED7D0077AB00 /* Item.h */,
@@ -401,6 +412,8 @@
 				2A98E66616F71059008A106A /* EBToDoRequest.m */,
 				2A98E66B16F9B99D008A106A /* User.h */,
 				2A98E66C16F9B99D008A106A /* User.m */,
+				2A6A37BD16FC5EDE00C17437 /* CoreDataHelper.h */,
+				2A6A37BE16FC5EDE00C17437 /* CoreDataHelper.m */,
 			);
 			name = Persistence;
 			sourceTree = "<group>";
@@ -470,7 +483,15 @@
 		2AE9BC6716CF2C4D0076CEE1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				2A98E66816F9A49A008A106A /* EBDataModel.xcdatamodeld */,
+				2A98E66816F9A49A008A106A /* EBiscusDataModels.xcdatamodeld */,
+				2A6A37CC16FFF61300C17437 /* SAD.h */,
+				2A6A37CD16FFF61300C17437 /* SAD.m */,
+				2A6A37C916FFF44D00C17437 /* User.h */,
+				2A6A37CA16FFF44D00C17437 /* User.m */,
+				2A6A37C316FFF44D00C17437 /* Item.h */,
+				2A6A37C416FFF44D00C17437 /* Item.m */,
+				2A6A37C016FFF3C700C17437 /* EBToDo.h */,
+				2A6A37C116FFF3C700C17437 /* EBToDo.m */,
 				2AE9BC6816CF2C4D0076CEE1 /* MobileDemo-Info.plist */,
 				2AE9BC6916CF2C4D0076CEE1 /* InfoPlist.strings */,
 				2AE9BC6C16CF2C4D0076CEE1 /* main.m */,
@@ -596,7 +617,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A751FB3016EC72ED00EB3475 /* SAD.m in Sources */,
 				2AD1368516E9F2BA0077AB00 /* ArrivedDeclarationCell.m in Sources */,
 				2AD1368616E9F2BA0077AB00 /* MapDetailViewController.m in Sources */,
 				2AD1368716E9F2BA0077AB00 /* MapMasterViewController.m in Sources */,
@@ -606,16 +626,14 @@
 				2AD1367416E9F0D30077AB00 /* ASIDataDecompressor.m in Sources */,
 				2AD1367616E9F0D30077AB00 /* ASIDownloadCache.m in Sources */,
 				2AD1367816E9F0D30077AB00 /* ASIFormDataRequest.m in Sources */,
-				2A5E954916F02A7D00F28190 /* EBRetriveToDoList.m in Sources */,
+				2A5E954916F02A7D00F28190 /* EBToDoListHelper.m in Sources */,
 				2A5E954D16F2C45900F28190 /* PDFViewController.m in Sources */,
-				2A5E954A16F02A7F00F28190 /* EBToDo.m in Sources */,
 				2AD1367A16E9F0D30077AB00 /* ASIHTTPRequest.m in Sources */,
 				2AD1367E16E9F0D30077AB00 /* ASIInputStream.m in Sources */,
 				2AD1368016E9F0D30077AB00 /* ASINetworkQueue.m in Sources */,
 				2AD1368316E9F0D30077AB00 /* Reachability.m in Sources */,
 				2AE9BC6D16CF2C4D0076CEE1 /* main.m in Sources */,
 				2AE9BC7116CF2C4D0076CEE1 /* AppDelegate.m in Sources */,
-				2AD1364716E9ED7D0077AB00 /* Item.m in Sources */,
 				2AD1366D16E9EFDA0077AB00 /* MainViewController.m in Sources */,
 				2AD1366A16E9EF820077AB00 /* IOSLoginResponse.m in Sources */,
 				A751FB6E16ED03DC00EB3475 /* BasicMapAnnotation.m in Sources */,
@@ -632,8 +650,12 @@
 				2ACC7F6416EF20D70083584A /* TransformableTableViewCell.m in Sources */,
 				2ACC7F6516EF20D70083584A /* UIColor+JTGestureBasedTableViewHelper.m in Sources */,
 				2A98E66716F71059008A106A /* EBToDoRequest.m in Sources */,
-				2A98E66A16F9A49A008A106A /* EBDataModel.xcdatamodeld in Sources */,
-				2A98E66D16F9B99E008A106A /* User.m in Sources */,
+				2A98E66A16F9A49A008A106A /* EBiscusDataModels.xcdatamodeld in Sources */,
+				2A6A37BF16FC5EDE00C17437 /* CoreDataHelper.m in Sources */,
+				2A6A37C216FFF3C700C17437 /* EBToDo.m in Sources */,
+				2A6A37C516FFF44D00C17437 /* Item.m in Sources */,
+				2A6A37CB16FFF44D00C17437 /* User.m in Sources */,
+				2A6A37CE16FFF61300C17437 /* SAD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -761,13 +783,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		2A98E66816F9A49A008A106A /* EBDataModel.xcdatamodeld */ = {
+		2A98E66816F9A49A008A106A /* EBiscusDataModels.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				2A98E66916F9A49A008A106A /* EBDataModel.xcdatamodel */,
+				2A98E66916F9A49A008A106A /* EBiscusDataModels.xcdatamodel */,
 			);
-			currentVersion = 2A98E66916F9A49A008A106A /* EBDataModel.xcdatamodel */;
-			path = EBDataModel.xcdatamodeld;
+			currentVersion = 2A98E66916F9A49A008A106A /* EBiscusDataModels.xcdatamodel */;
+			path = EBiscusDataModels.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

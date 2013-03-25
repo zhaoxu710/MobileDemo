@@ -2,58 +2,63 @@
 //  SAD.h
 //  MobileDemo
 //
-//  Created by bull on 2/17/13.
+//  Created by bull on 3/25/13.
 //  Copyright (c) 2013 bull. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#import <MapKit/MapKit.h>
 #import <CoreData/CoreData.h>
-#import "Item.h"
+
+@class EBToDo, Item;
 
 @interface SAD : NSManagedObject
 
+@property (nonatomic, retain) NSString * b1_decla_sub1;
+@property (nonatomic, retain) NSString * b1_decla_sub2;
+@property (nonatomic, retain) NSNumber * b5_items;
+@property (nonatomic, retain) NSDecimalNumber * b6_total_packages;
+@property (nonatomic, retain) NSString * b14_address;
+@property (nonatomic, retain) NSString * b14_country;
+@property (nonatomic, retain) NSString * b14_declarant_tr;
+@property (nonatomic, retain) NSString * b14_name;
+@property (nonatomic, retain) NSString * b15_dispatch_ctr;
+@property (nonatomic, retain) NSString * b17_dest_country;
+@property (nonatomic, retain) NSString * b18_trans_id;
+@property (nonatomic, retain) NSString * b20_deliv_terms_sub1;
+@property (nonatomic, retain) NSString * b20_deliv_terms_sub2;
+@property (nonatomic, retain) NSString * b20_deliv_terms_sub3;
+@property (nonatomic, retain) NSString * b22_currency_code;
+@property (nonatomic, retain) NSDecimalNumber * b22_total_amount;
+@property (nonatomic, retain) NSDecimalNumber * b23_exchange_rate;
+@property (nonatomic, retain) NSString * b25_border_trans;
+@property (nonatomic, retain) NSString * b29_exit_office_sub1;
+@property (nonatomic, retain) NSString * b29_exit_office_sub2;
+@property (nonatomic, retain) NSString * b29_exit_office_sub3;
+@property (nonatomic, retain) NSString * b30_location;
+@property (nonatomic, retain) NSString * b30_point;
+@property (nonatomic, retain) NSString * b48_deferred_pay;
+@property (nonatomic, retain) NSString * boxa_office_code;
+@property (nonatomic, retain) NSString * boxa_office_country_code;
+@property (nonatomic, retain) NSString * boxa_office_sub_code;
+@property (nonatomic, retain) NSString * cd_status;
+@property (nonatomic, retain) NSString * cd_trade_move;
+@property (nonatomic, retain) NSNumber * order;
+@property (nonatomic, retain) NSDate * t2_accept;
+@property (nonatomic, retain) NSDate * t3_risk_assess;
+@property (nonatomic, retain) NSDate * t4_check_risk;
+@property (nonatomic, retain) NSDate * t6_conform;
+@property (nonatomic, retain) NSDate * t15_discharge;
+@property (nonatomic, retain) NSDecimalNumber * version;
+@property (nonatomic, retain) NSString * sad_id;
+@property (nonatomic, retain) NSSet *items;
+@property (nonatomic, retain) EBToDo *todolist;
+@end
 
-@property int order,b5_items;
-@property NSString  *sad_id,
-*b14_declarant_tr,
-*b14_address,
-*b14_country,
-*b14_name,
-*b15_dispatch_ctr,
-*b17_dest_country,
-*b18_trans_id,
-*b20_deliv_terms_sub1,
-*b20_deliv_terms_sub2,
-*b20_deliv_terms_sub3,
-*b22_currency_code,
-*b1_decla_sub1,
-*b1_decla_sub2,
-*boxa_office_code,
-*boxa_office_country_code,
-*boxa_office_sub_code,
-*cd_status,
-*cd_trade_move,
-*b25_border_trans,
-*b26_inland_trans,
-*b29_exit_office_sub1,
-*b29_exit_office_sub2,
-*b29_exit_office_sub3,
-*b30_location,
-*b30_point,
-*b48_deferred_pay;
-@property NSDecimalNumber
-*b6_total_packages,
-*version,
-*b22_total_amount,
-*b23_exchange_rate;
-@property NSDate    *t2_accept,
-*t3_risk_assess,
-*t4_check_risk,
-*t6_conform,
-*t15_discharge;
-@property NSMutableArray *items;
+@interface SAD (CoreDataGeneratedAccessors)
 
--(CLLocationCoordinate2D)getLocation;
+- (void)addItemsObject:(Item *)value;
+- (void)removeItemsObject:(Item *)value;
+- (void)addItems:(NSSet *)values;
+- (void)removeItems:(NSSet *)values;
 
 @end

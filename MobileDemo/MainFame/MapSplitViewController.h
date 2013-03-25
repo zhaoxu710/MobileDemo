@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreData/CoreData.h>
 
 @interface MapSplitViewController : UISplitViewController
+
+@property (nonatomic, strong) NSManagedObjectContext* managedObjectContext;
+
+
 
 @end

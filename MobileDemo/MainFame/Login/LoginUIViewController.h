@@ -13,7 +13,7 @@
 
 @interface LoginUIViewController : UIViewController<UITextFieldDelegate>
 
-@property (nonatomic,strong) NSManagedObjectContext* managedObjectContext;
+@property (nonatomic, strong) NSManagedObjectContext* managedObjectContext;
 
 @property (nonatomic, retain) IBOutlet TPKeyboardAvoidingScrollView *scrollView;
 

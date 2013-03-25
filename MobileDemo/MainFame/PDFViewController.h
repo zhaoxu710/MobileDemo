@@ -17,6 +17,9 @@
 
 @interface PDFViewController : UIViewController
 
+
+@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
+
 @property (strong, nonatomic) EBToDo *detailItem;
 
 @property (strong, nonatomic) IBOutlet UIProgressView *progressview;

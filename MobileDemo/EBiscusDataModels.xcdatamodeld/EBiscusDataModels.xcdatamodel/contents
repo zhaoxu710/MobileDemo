@@ -15,7 +15,7 @@
         <attribute name="wfAction" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="wfInstance" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="wfNode" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="sads" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SAD" inverseName="todolist" inverseEntity="SAD" syncable="YES"/>
+        <relationship name="sads" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SAD" inverseName="todolist" inverseEntity="SAD" syncable="YES"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="User" inverseName="todolist" inverseEntity="User" syncable="YES"/>
     </entity>
     <entity name="Item" representedClassName="Item" syncable="YES">
@@ -70,6 +70,7 @@
         <attribute name="cd_status" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="cd_trade_move" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="order" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="sad_id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="t2_accept" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="t3_risk_assess" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="t4_check_risk" optional="YES" attributeType="Date" syncable="YES"/>
@@ -79,15 +80,15 @@
         <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Item" inverseName="sad" inverseEntity="Item" syncable="YES"/>
         <relationship name="todolist" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="EBToDo" inverseName="sads" inverseEntity="EBToDo" syncable="YES"/>
     </entity>
-    <entity name="User" syncable="YES">
+    <entity name="User" representedClassName="User" syncable="YES">
         <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="userName" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="todolist" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EBToDo" inverseName="user" inverseEntity="EBToDo" syncable="YES"/>
     </entity>
     <elements>
-        <element name="SAD" positionX="81" positionY="-36" width="128" height="613"/>
+        <element name="EBToDo" positionX="-108" positionY="234" width="128" height="285"/>
         <element name="Item" positionX="306" positionY="83" width="128" height="328"/>
-        <element name="EBToDo" positionX="-108" positionY="234" width="128" height="283"/>
-        <element name="User" positionX="-108" positionY="-27" width="128" height="88"/>
+        <element name="SAD" positionX="81" positionY="-36" width="128" height="630"/>
+        <element name="User" positionX="-108" positionY="-27" width="128" height="90"/>
     </elements>
 </model>

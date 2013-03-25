@@ -9,7 +9,9 @@
 #import "MapMasterViewController.h"
 #import "SAD.h"
 #import "ArrivedDeclarationCell.h"
-#import "EBRetriveToDoList.h"
+#import "EBToDoListHelper.h"
+#import "User.h"
+#import "CoreDataHelper.h"
 
 @implementation MapMasterViewController
 
@@ -20,24 +22,30 @@
 
 
 @class EBToDo;
+@class User;
 
 
 #pragma mark - View lifecycle
 - (void)dataLoading{
-//    NSMutableArray *sadlist = [NSMutableArray arrayWithCapacity:20];
+
+    if (manageObjectContext) {
+        NSLog(@"MapMasterViewController context is not null");
+    }else{
+         NSLog(@"MapMasterViewController context is null");
+    }
     
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription
-                                   entityForName:@"EBToDo" inManagedObjectContext:manageObjectContext];
-    [fetchRequest setEntity:entity];
-    NSError *error;
-    self.todoList = [manageObjectContext executeFetchRequest:fetchRequest error:&error];
+//    NSError *error;
+    NSLog(@"fetch");
+
+    //  Grab the data
+    self.todoList = [CoreDataHelper getObjectsForEntity:@"EBToDo" withSortKey:nil andSortAscending:NO andContext:manageObjectContext];
+    self.sads = [CoreDataHelper getObjectsForEntity:@"SAD" withSortKey:nil andSortAscending:NO andContext:manageObjectContext];
+    NSLog(@"todo size %d", self.todoList.count);
+    NSLog(@"sads size %d", self.sads.count);
+//    //  Force table refresh
+//    [self.tableView reloadData];
 
 }
-    
-
-
-
 
 
 - (void)viewDidLoad
@@ -82,7 +90,7 @@
 - (NSInteger)tableView:(UITableView *)tableView
  numberOfRowsInSection:(NSInteger)section
 {
-	return [self.todoList count];
+	return [self.sads count];
 }
 
 
@@ -91,8 +99,7 @@
     
     static NSString *cellIdentifier = @"SADCell";
 	ArrivedDeclarationCell *cell = (ArrivedDeclarationCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    EBToDo *todo = [self.todoList objectAtIndex:indexPath.row];
-    SAD *sad= todo.sad;
+    SAD *sad = [self.sads objectAtIndex:indexPath.row];
     
     
     //sad id
@@ -188,7 +195,14 @@
     UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
     PDFViewController *pdfViewController = [storyBoard instantiateViewControllerWithIdentifier:@"pdfview"];
     pdfViewController.detailItem =  todoList[indexPath.row];
+    
+    NSLog(@"manageObjectContext");
+    pdfViewController.managedObjectContext = self.manageObjectContext;
     [[[[UIApplication sharedApplication] delegate] window] setRootViewController:pdfViewController];
+    NSLog(@"pdf view end");
 }
+
+
+
 
 @end
